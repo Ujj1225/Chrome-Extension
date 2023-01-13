@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: bisque;
+}
+
+#box-el {
+    cursor: pointer;
+    background: lightseagreen;
+    padding: 40px;
+    width: 200px;
+    text-align: center;
+    margin: 20px auto;
+    /* The margin 20px auto is actually rendering the box in the middle */
+    color: white;
+    font-weight: bold;
+}
