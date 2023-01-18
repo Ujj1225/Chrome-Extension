@@ -19,16 +19,28 @@ let mylead = [];
 const inputEl = document.querySelector("#input-el");
 const inputBtn = document.querySelector("#input-btn");
 const ulEl = document.querySelector("#ul-el")
-console.log(ulEl);
+
 // More professional way of using onclick
 inputBtn.addEventListener("click", function(){
     mylead.push(inputEl.value);
-    console.log(mylead);
+    inputEl.value = ""
+    renderLeads();
 })
-mylead = ["www.awesomeleads.com" , "www.epicleads.com", "www.leadkun.com"];
-let listItems = "";
-for( let i = 0; i < mylead.length; i++)
+
+function renderLeads()
 {
-    listItems += "<li>" + mylead[i] + "</li>";
+    let listItems = "";
+    for( let i = 0; i < mylead.length; i++)
+    {
+        // listItems += "<li><a target='_blank' href='" +  mylead[i] + "'>" + mylead[i] + "</a></li>";
+        // Template strings is used to solve problems like this 
+        listItems += `
+            <li>
+            <a target="_blank" href="${mylead[i]}">
+             ${mylead[i]} 
+            </a>
+            </li>
+        `   
+    }
+    ulEl.innerHTML = listItems;
 }
-ulEl.innerHTML = listItems;
