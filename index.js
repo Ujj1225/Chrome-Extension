@@ -1,5 +1,5 @@
 // mylead = ["www.awesomeleads.com", "www.epicleads.com", "www.leadkun.com"];
-// for (let i=0; i<mylead.length; i++)
+// for (let i=0; i<mylead.length; i++) 
 // {
 //     // With this you can create html document with JS
 //     // Use of innerHTML
