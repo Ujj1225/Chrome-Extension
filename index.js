@@ -14,13 +14,16 @@
 // }
 
 
-// let mylead = [];
+let mylead = [];
 
-let myleads = `["www.awesomelead.com"]`;
-myleads = JSON.parse(myleads);
-myleads.push("www.leadkun.com");
-myleads = JSON.stringify(myleads);
-console.log(typeof(myleads));
+// Stringify and Parse
+
+// let myleads = `["www.awesomelead.com"]`;
+// myleads = JSON.parse(myleads);
+// myleads.push("www.leadkun.com");
+// myleads = JSON.stringify(myleads);
+// console.log(typeof(myleads));
+
 // const is used for storing constant
 const inputEl = document.querySelector("#input-el");
 const inputBtn = document.querySelector("#input-btn");
@@ -28,13 +31,13 @@ const ulEl = document.querySelector("#ul-el")
 
 // Local Storage
 // Adding key value pair in local Storage
-localStorage.setItem("myleads", "www.example.com");
+// localStorage.setItem("myleads", "www.example.com");
 
 // logging out the value of local Storage in Console
-console.log(localStorage.getItem("myleads"));
+// console.log(localStorage.getItem("myleads"));
 
 // Clearing out local storage 
-localStorage.clear();
+// localStorage.clear();
 
 // There are two methods for arrays to string and string to arrays 
 
@@ -49,8 +52,12 @@ localStorage.clear();
 inputBtn.addEventListener("click", function(){
     mylead.push(inputEl.value);
     inputEl.value = ""
+    localStorage.setItem("mylead", JSON.stringify(mylead));
     renderLeads();
 })
+let leadsfromLocalStorage = localStorage.getItem("mylead");
+mylead = JSON.parse(leadsfromLocalStorage); 
+console.log(leadsfromLocalStorage);
 
 function renderLeads()
 {
