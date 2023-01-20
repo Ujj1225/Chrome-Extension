@@ -27,6 +27,7 @@ let mylead = [];
 // const is used for storing constant
 const inputEl = document.querySelector("#input-el");
 const inputBtn = document.querySelector("#input-btn");
+const deleteBtn = document.querySelector("#delete-btn");
 const ulEl = document.querySelector("#ul-el")
 
 // Local Storage
@@ -47,6 +48,16 @@ const ulEl = document.querySelector("#ul-el")
 
 // JSON.stringify le array lai string ma lagcha. Only strings are accepted as key value pairs in JSON
 
+let leadsfromLocalStorage = localStorage.getItem("mylead");
+if (leadsfromLocalStorage) {
+  mylead = JSON.parse(leadsfromLocalStorage);
+  renderLeads();
+}
+
+// Constructing the delete button
+deleteBtn.addEventListener("click", function(){
+    localStorage.clear();
+})
 
 // More professional way of using onclick
 inputBtn.addEventListener("click", function(){
@@ -55,9 +66,6 @@ inputBtn.addEventListener("click", function(){
     localStorage.setItem("mylead", JSON.stringify(mylead));
     renderLeads();
 })
-let leadsfromLocalStorage = localStorage.getItem("mylead");
-mylead = JSON.parse(leadsfromLocalStorage); 
-console.log(leadsfromLocalStorage);
 
 function renderLeads()
 {
