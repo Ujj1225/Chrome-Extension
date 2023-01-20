@@ -12,29 +12,40 @@ input{
     border: 2px solid #5f9341;
 }
 
-button{
+#input-btn{
     margin: 5px 0;
     padding: 10px 20px;
     background-color: #5f9341;
     color: white;
     font-weight: bold;
     border: none;
+    min-width: 10%;
 }
 
+#delete-btn{
+    border: 2px solid #5f9341;
+    color: #5f9341;
+    font-weight: bold;
+    background-color: white;
+    min-width: 10%;
+
+}
 ul{
     list-style-type: none;
     padding-left: 0;
-    margin-top: 10px;
+    margin-top: 3px;
 }
 
 li{
     /* This list style type is used to provide styling to the list and setting its value to none actually removes the disc */
-    margin-top: 5px;
+    margin-top: 1px;
+    padding: 3px;
     padding-left: 0;
 }
 
 li  a{
 
     color: #5f9341;
+    padding: 5px;
     padding-left: 0;
 }
