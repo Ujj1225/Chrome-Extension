@@ -48,15 +48,17 @@ const ulEl = document.querySelector("#ul-el")
 
 // JSON.stringify le array lai string ma lagcha. Only strings are accepted as key value pairs in JSON
 
-let leadsfromLocalStorage = localStorage.getItem("mylead");
+const leadsfromLocalStorage = localStorage.getItem("mylead");
 if (leadsfromLocalStorage) {
   mylead = JSON.parse(leadsfromLocalStorage);
-  renderLeads();
+  render(mylead);
 }
 
 // Constructing the delete button
-deleteBtn.addEventListener("click", function(){
+deleteBtn.addEventListener("dblclick", function(){
     localStorage.clear();
+    mylead =[];
+    render(mylead);
 })
 
 // More professional way of using onclick
@@ -64,20 +66,20 @@ inputBtn.addEventListener("click", function(){
     mylead.push(inputEl.value);
     inputEl.value = ""
     localStorage.setItem("mylead", JSON.stringify(mylead));
-    renderLeads();
+    render(mylead);
 })
 
-function renderLeads()
+function render(leads)
 {
     let listItems = "";
-    for( let i = 0; i < mylead.length; i++)
+    for( let i = 0; i < leads.length; i++)
     {
         // listItems += "<li><a target='_blank' href='" +  mylead[i] + "'>" + mylead[i] + "</a></li>";
         // Template strings is used to solve problems like this 
         listItems += `
             <li>
-            <a target="_blank" href="${mylead[i]}">
-             ${mylead[i]} 
+            <a target="_blank" href="${leads[i]}">
+             ${leads[i]} 
             </a>
             </li>
         `   
