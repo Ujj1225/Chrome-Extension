@@ -1,7 +1,8 @@
 const welcomeEl = document.querySelector("#welcome-el");
-let person = "Ujj"
-function greetUser(name)
+let person = "Ujj";
+let greet = "Welcome";
+function greetUser(name, greeting)
 {
-    welcomeEl.textContent = `Welcome back ${name} 👋`;
+    welcomeEl.textContent = `${greeting} back ${name} 👋`;
 }
-greetUser(person);
+greetUser(person, greet);
