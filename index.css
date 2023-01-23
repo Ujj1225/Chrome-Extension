@@ -29,6 +29,16 @@ input{
     background-color: white;
     min-width: 10%;
 
+}   
+#tab-btn{
+    margin: 5px 0;
+    padding: 10px 20px;
+    background-color: #5f9341;
+    color: white;
+    font-weight: bold;
+    border: none;
+    min-width: 10%;
+
 }
 ul{
     list-style-type: none;
