@@ -1,5 +1,5 @@
 // mylead = ["www.awesomeleads.com", "www.epicleads.com", "www.leadkun.com"];
-// for (let i=0; i<mylead.length; i++) 
+// for (let i=0; i<mylead.length; i++)
 // {
 //     // With this you can create html document with JS
 //     // Use of innerHTML
@@ -12,7 +12,6 @@
 //     // append to ul
 //     ulEl.append(li);
 // }
-
 
 let mylead = [];
 
@@ -28,7 +27,8 @@ let mylead = [];
 const inputEl = document.querySelector("#input-el");
 const inputBtn = document.querySelector("#input-btn");
 const deleteBtn = document.querySelector("#delete-btn");
-const ulEl = document.querySelector("#ul-el")
+const ulEl = document.querySelector("#ul-el");
+const saveBtn = document.querySelector("#tab-btn");
 
 // Local Storage
 // Adding key value pair in local Storage
@@ -37,10 +37,10 @@ const ulEl = document.querySelector("#ul-el")
 // logging out the value of local Storage in Console
 // console.log(localStorage.getItem("myleads"));
 
-// Clearing out local storage 
+// Clearing out local storage
 // localStorage.clear();
 
-// There are two methods for arrays to string and string to arrays 
+// There are two methods for arrays to string and string to arrays
 
 // One is JSON.stringify and the other is JSON.parse
 
@@ -55,34 +55,37 @@ if (leadsfromLocalStorage) {
 }
 
 // Constructing the delete button
-deleteBtn.addEventListener("dblclick", function(){
-    localStorage.clear();
-    mylead =[];
-    render(mylead);
-})
+deleteBtn.addEventListener("dblclick", function () {
+  localStorage.clear();
+  mylead = [];
+  render(mylead);
+});
 
 // More professional way of using onclick
-inputBtn.addEventListener("click", function(){
-    mylead.push(inputEl.value);
-    inputEl.value = ""
-    localStorage.setItem("mylead", JSON.stringify(mylead));
-    render(mylead);
-})
+inputBtn.addEventListener("click", function () {
+  mylead.push(inputEl.value);
+  inputEl.value = "";
+  localStorage.setItem("mylead", JSON.stringify(mylead));
+  render(mylead);
+});
 
-function render(leads)
-{
-    let listItems = "";
-    for( let i = 0; i < leads.length; i++)
-    {
-        // listItems += "<li><a target='_blank' href='" +  mylead[i] + "'>" + mylead[i] + "</a></li>";
-        // Template strings is used to solve problems like this 
-        listItems += `
+// Listening to button clicks for SAVE-BTN
+saveBtn.addEventListener("click", function(){
+    console.log("https://github.com/Ujj1225");
+});
+
+function render(leads) {
+  let listItems = "";
+  for (let i = 0; i < leads.length; i++) {
+    // listItems += "<li><a target='_blank' href='" +  mylead[i] + "'>" + mylead[i] + "</a></li>";
+    // Template strings is used to solve problems like this
+    listItems += `
             <li>
             <a target="_blank" href="${leads[i]}">
              ${leads[i]} 
             </a>
             </li>
-        `   
-    }
-    ulEl.innerHTML = listItems;
+        `;
+  }
+  ulEl.innerHTML = listItems;
 }
