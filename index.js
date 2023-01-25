@@ -8,7 +8,7 @@
 //     // creating element
 //     const li = document.createElement("li");
 //     // setting text content
-//     li.textContent = mylead[i];
+//     li.textContent = mylead[i];  
 //     // append to ul
 //     ulEl.append(li);
 // }
@@ -53,11 +53,16 @@ if (leadsfromLocalStorage) {
   mylead = JSON.parse(leadsfromLocalStorage);
   render(mylead);
 }
+  
+// Creating a tabs array and Navigating arrays and object
+// const tabs = [{ url: "https://github.com/Ujj1225" }];
+
 
 // Constructing the delete button
 deleteBtn.addEventListener("dblclick", function () {
   localStorage.clear();
   mylead = [];
+  localStorage.setItem("mylead", JSON.stringify(mylead))
   render(mylead);
 });
 
@@ -71,7 +76,12 @@ inputBtn.addEventListener("click", function () {
 
 // Listening to button clicks for SAVE-BTN
 saveBtn.addEventListener("click", function(){
-    console.log("https://github.com/Ujj1225");
+    // console.log(tabs[0].url);
+    // Here the dot url makes it show the actual value without showing us the key 
+    // Now here we save the button instead of logging it out 
+    mylead.push(window.location.href);
+    localStorage.setItem("mylead", JSON.stringify(mylead))
+    render(mylead);
 });
 
 function render(leads) {
